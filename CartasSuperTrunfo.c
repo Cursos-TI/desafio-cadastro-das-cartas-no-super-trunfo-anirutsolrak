@@ -4,6 +4,7 @@ int main() {
     // separei em dois blocos pra ficar mais organizado
 
     // Variáveis para a CARTA 1
+    // parte um do desafio
     char  estado1;
     char  codigo1[4]; // "A01" mais o caractere nulo '\0' = 4 caracteres
     char  cidade1[50];
@@ -11,8 +12,13 @@ int main() {
     float area1;
     float pib1;
     int   pontosTuristicos1;
+// parte dois do desafio
+    float densidadePopulacional1;
+    float pibPerCapita1;
+
 
     // Variáveis para a CARTA 2
+    // parte um do desafio
     char  estado2;
     char  codigo2[4];
     char  cidade2[50];
@@ -20,6 +26,10 @@ int main() {
     float area2;
     float pib2;
     int   pontosTuristicos2;
+    //parte dois do desafio
+    float densidadePopulacional2;
+    float pibPerCapita2;
+
 
     /*
      * =====================================================================
@@ -28,7 +38,7 @@ int main() {
     */
     printf("--- CADASTRO DA CARTA 1 ---\n");
 
-    printf("Digite o Estado (APENAS UMA LETRA de A-a-H) e pressione Enter: ");
+    printf("Digite o Estado (APENAS UMA LETRA de A-H) e pressione Enter: ");
     scanf(" %c", &estado1);
 
     printf("Digite o Codigo da Carta (A letra do estado + um numero de 01 a 04 ex: B02) e pressione Enter: ");
@@ -39,7 +49,7 @@ int main() {
     printf("Digite o Nome da Cidade e pressione Enter: ");
     fgets(cidade1, 50, stdin);
 
-    printf("Digite a Populacao: ");
+    printf("Digite a Populacao (apenas numeros inteiros, ex: 50000): ");
     scanf("%d", &populacao1);
 
     printf("Digite a Area (em km2, use ponto. ex: 1521.11): ");
@@ -61,7 +71,7 @@ int main() {
     */
     printf("--- CADASTRO DA CARTA 2 ---\n");
 
-    printf("Digite o Estado (APENAS UMA LETRA de A-a-H) e pressione Enter: ");
+    printf("Digite o Estado (APENAS UMA LETRA de A-H) e pressione Enter: ");
     scanf(" %c", &estado2);
 
     printf("Digite o Codigo da Carta (A letra do estado + um numero de 01 a 04 ex: B02) e pressione Enter: ");
@@ -72,7 +82,7 @@ int main() {
     printf("Digite o Nome da Cidade e pressione Enter: ");
     fgets(cidade2, 50, stdin);
 
-    printf("Digite a Populacao: ");
+    printf("Digite a Populacao (apenas numeros inteiros, ex: 50000): ");
     scanf("%d", &populacao2);
 
     printf("Digite a Area (em km2, use ponto. ex: 1200.25): ");
@@ -85,6 +95,17 @@ int main() {
     scanf("%d", &pontosTuristicos2);
 
     printf("\n--- CARTA 2 CADASTRADA COM SUCESSO! ---\n\n");
+
+    /*
+    // parte dois do desafio
+     * Aqui, pegamos os dados brutos e calculamos as novas propriedades.
+     * A conversão do PIB e feita para unidades antes da divisão.
+    */
+    densidadePopulacional1 = populacao1 / area1;
+    pibPerCapita1 = (pib1 * 1000000000) / populacao1;
+
+    densidadePopulacional2 = populacao2 / area2;
+    pibPerCapita2 = (pib2 * 1000000000) / populacao2;
 
 
     /*
@@ -104,6 +125,9 @@ int main() {
     printf("Area: %.2f km2\n", area1);
     printf("PIB: %.2f bilhoes de reais\n", pib1);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos1);
+    //parte dois do desafio
+    printf("Densidade Populacional: %.2f hab/km2\n", densidadePopulacional1);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita1);
     
     printf("\n--------------------------------------\n\n");
 
@@ -115,6 +139,9 @@ int main() {
     printf("Area: %.2f km2\n", area2);
     printf("PIB: %.2f bilhoes de reais\n", pib2);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos2);
+    //parte dois do desafio
+    printf("Densidade Populacional: %.2f hab/km2\n", densidadePopulacional2);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
 
     //Por fim se tudo der certo, amem e return 0 pra finalizar o main.
     return 0; 
@@ -129,5 +156,7 @@ while (getchar() != '\n'); // Limpa o buffer de entrada
 mas não usei porque não sei se é permitido, então deixei o espaço antes do %c para limpar o buffer de entrada, o que funcionou parcialmente então adicionei um  
 
 getchar()  que 'come' essa tecla que sobra, evitando problemas de leitura.
+
+sou pessimo em matematica não sei se os calculos estão corretos, mas fiz o que pude, espero que esteja certo, se não estiver me avise que eu tento corrigir.
 
 */
