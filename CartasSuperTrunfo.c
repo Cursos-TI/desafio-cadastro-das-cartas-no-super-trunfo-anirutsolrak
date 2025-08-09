@@ -12,7 +12,7 @@ int main() {
     float area1;
     float pib1;
     int   pontosTuristicos1;
-// parte dois do desafio
+    // parte dois do desafio
     float densidadePopulacional1;
     float pibPerCapita1;
 
@@ -143,12 +143,36 @@ int main() {
     printf("Densidade Populacional: %.2f hab/km2\n", densidadePopulacional2);
     printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
 
-    //Por fim se tudo der certo, amem e return 0 pra finalizar o main.
+    /*
+     * =====================================================================
+     *  NOVA SEÇÃO: COMPARAÇÃO DAS CARTAS
+     * =====================================================================
+     * Para este exemplo, vamos comparar pelo PIB per Capita.
+     * A regra é: quem tiver o maior valor, vence.
+    */
+    printf("\n======================================\n");
+    printf("      RESULTADO DA DISPUTA\n");
+    printf("======================================\n\n");
+
+    printf("Atributo Comparado: PIB per Capita\n\n");
+    printf("Carta 1 (%s) - PIB per Capita: R$ %.2f\n", codigo1, pibPerCapita1);
+    printf("Carta 2 (%s) - PIB per Capita: R$ %.2f\n", codigo2, pibPerCapita2);
+    printf("\n");
+
+    // Aqui começa a lógica de decisão com if-else.
+    if (pibPerCapita1 > pibPerCapita2) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", codigo1);
+    } else if (pibPerCapita2 > pibPerCapita1) {
+        printf("Resultado: Carta 2 (%s) venceu!\n", codigo2);
+    } else {
+        printf("Resultado: Empate!\n");
+    }
+    printf("\n======================================\n");
     return 0; 
 }
 
 /*
-eu encontrei uma limpeza de buffer usando whille que parecia ser uma ideia boa, mas não consegui mas parecia que iria violar as regras do desafio (a restriçãO parece ser a loops no geral)
+eu encontrei uma limpeza de buffer usando whille que parecia ser uma ideia boa, mas parecia que iria violar as regras do desafio (a restriçãO parece ser a loops no geral)
 então não usei, mas para referencia seria assim 
 
 while (getchar() != '\n'); // Limpa o buffer de entrada
